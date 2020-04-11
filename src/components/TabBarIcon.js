@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Colors from '../constants/Colors';
 
 export default class TabBarIcon extends React.Component {
@@ -8,8 +7,11 @@ export default class TabBarIcon extends React.Component {
 		return (
 			<Icon
 				name={name}
-				size={20}
-				style={{ marginBottom: -3 }}
+				size={25}
+				style={{
+					width: 35,
+					textAlign: 'center',
+				}}
 				color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
 			/>
 		);

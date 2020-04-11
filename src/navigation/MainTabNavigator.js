@@ -2,61 +2,21 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-// import {
-// 	MessagesScreen,
-// 	ProfileScreen,
-// 	TopPicksScreen,
-// 	HomeScreen,
-// } from './screens';
-// import MessagesScreen from './MessagesScreen';
-// import ProfileScreen from './ProfileScreen';
-// import TopPicksScreen from './screens/TopPicksScreen';
-// import HomeScreen from './HomeScreen';
-// import {
-// 	MaterialCommunityIcons,
-// 	FontAwesome,
-// 	Feather,
-// } from 'react-native-vector-icons';
+import {
+	HomeScreen,
+	ProfileScreen,
+	MessagesScreen,
+	TopPicksScreen,
+} from './screens';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 
-import TabBarIcon from '../../components/TabBarIcon';
+import TabBarIcon from '../components/TabBarIcon';
+import Color from '../constants/Colors';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
-
-HomeScreen = () => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>Home Screen</Text>
-		</View>
-	);
-};
-
-ProfileScreen = () => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>Profile Screen</Text>
-		</View>
-	);
-};
-
-TopPicksScreen = () => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>TopPicks Screen</Text>
-		</View>
-	);
-};
-
-MessagesScreen = () => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.text}>Messages Screen</Text>
-		</View>
-	);
-};
 
 const styles = StyleSheet.create({
 	container: {
@@ -78,6 +38,7 @@ function HomeStack() {
 				component={HomeScreen}
 				options={{
 					headerShown: false,
+					headerMode: 'none',
 				}}
 			/>
 		</Stack.Navigator>
@@ -92,6 +53,7 @@ function TopPicksStack() {
 				component={TopPicksScreen}
 				options={{
 					headerShown: false,
+					headerMode: 'none',
 				}}
 			/>
 		</Stack.Navigator>
@@ -106,6 +68,7 @@ function ProfileStack() {
 				component={ProfileScreen}
 				options={{
 					headerShown: false,
+					headerMode: 'none',
 				}}
 			/>
 		</Stack.Navigator>
@@ -119,6 +82,7 @@ function MessagesStack() {
 				component={MessagesScreen}
 				options={{
 					headerShown: false,
+					headerMode: 'none',
 				}}
 			/>
 		</Stack.Navigator>
@@ -129,13 +93,17 @@ function TabNavigator() {
 	return (
 		<Tab.Navigator
 			barStyle={{
-				backgroundColor: '#f04b76',
-			}}>
+				backgroundColor: '#ffffff',
+				paddingBottom: 10,
+			}}
+			activeColor={Color.tabIconSelected}
+			inactiveColor={Color.tabIconDefault}>
 			<Tab.Screen
 				name="Home"
 				component={HomeStack}
 				options={{
 					tabBarLabel: 'Home',
+					headerMode: 'none',
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon
 							Icon={MaterialCommunityIcons}
@@ -150,6 +118,7 @@ function TabNavigator() {
 				component={TopPicksStack}
 				options={{
 					tabBarLabel: 'TopPicks',
+					headerMode: 'none',
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon
 							Icon={FontAwesome}
@@ -164,6 +133,7 @@ function TabNavigator() {
 				component={MessagesStack}
 				options={{
 					tabBarLabel: 'Messages',
+					headerMode: 'none',
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon
 							Icon={FontAwesome}
@@ -178,6 +148,7 @@ function TabNavigator() {
 				component={ProfileStack}
 				options={{
 					tabBarLabel: 'Profile',
+					headerMode: 'none',
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon
 							Icon={Feather}
